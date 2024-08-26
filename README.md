@@ -30,8 +30,8 @@ struct Stream : NodeBase
         // 1. and retrieve() for functions that return something
         // 2. use invoke() for void handlers 
 
-        // calls quoter's "Position" handle() function to get some value
-        auto position = this->getHandler()->retrieve(tag::Quoter::Position{}); 
+        // calls trader component's "Position" handle() function to get some value
+        auto position = this->getHandler()->retrieve(tag::Trader::Position{}); 
 
         // call's risk's "Evaluate" handle() function
         this->getHandler()->invoke(tag::Risk::Evaluate{}, position);
@@ -58,7 +58,7 @@ using Graph = Router<
     NodeList<
         Risk,
         Stream,
-        Quoter,
+        Trader,
         Logger,
         ...
     >
