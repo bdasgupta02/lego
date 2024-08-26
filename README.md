@@ -5,6 +5,8 @@ A single-header lego-like static dependency injection wiring system for low-late
 - C++20
 
 ### Creating nodes
+These are the individual components of your app (or component graph). Other than the handlers and `NodeBase`, they just work like ordinary C++ structs or classes with your functionality within them
+
 ```cpp
 // NodeBase is a lightweight struct to expose the handler to invoke functions of other nodes *magically*
 template<typename NodeBase>
@@ -47,6 +49,8 @@ struct Stream : NodeBase
 ```
 
 ### Construction of the graph
+The graph is just all the components grouped and wired automatically together, so you don't need to worry about connecting the function calls manually
+
 ```cpp
 // Finally, create a graph with a type traits and a node list
 using Graph = Router<
@@ -75,3 +79,6 @@ handler->invoke(tag::Stream::Start{});
     - at least one handler is implemented for an invoke(tag) call,
     - and only one handler is implemented for a retrieve(tag) call
 - Allows circular dependencies. With a few tweaks to the router this could be banned
+
+### Example
+Please find an example in the `example.cpp` file
