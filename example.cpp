@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+// This example is a simple ping-pong component, where one component
+// pings the other, and we can get the total number of pings made at the end
+
 // These tags are used to wire and dispatch functions
 // between components
 namespace tag {
