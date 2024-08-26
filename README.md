@@ -2,7 +2,7 @@
 A single-header lego-like static dependency injection wiring system for low-latency C++ applications.
 
 ### Requirements
-- C++20
+C++20
 
 ### Creating nodes
 These are the individual components of your app (or component graph). Other than the handlers and `NodeBase`, they just work like ordinary C++ structs or classes with your functionality within them
