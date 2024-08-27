@@ -52,7 +52,13 @@ struct Stream : NodeBase
 The graph is just all the components grouped and wired automatically together, so you don't need to worry about connecting the function calls manually.
 
 ```cpp
-// Finally, create a graph with a type traits and a node list
+// Inject type traits into the graph, accessible by every node
+Struct Traits
+{
+    using Price = Decimal<4u>;
+};
+
+// Finally, create a graph with type traits and a node list
 using Graph = Router<
     Traits,
     NodeList<
