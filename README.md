@@ -13,6 +13,7 @@ using App1 = Router<
         CommonComponentX,
         CommonComponentY,
         UniqueComponentA // unique to this application (App1)
+    >
 >;
 
 using App2 = Router<
@@ -22,6 +23,7 @@ using App2 = Router<
         CommonComponentY,
         UniqueComponentB,
         UniqueComponentC
+    >
 >;
 ```
 
