@@ -8,11 +8,11 @@ C++20
 The graph system puts tag dispatch at its core to route components statically, making the concept of dependency injection implicit and dependent on how you use the library. The structure of the router implies that each node is dependent on the entire structure of the graph, as well as the tag dispatched API it uses. This can therefore be a powerful tool for dependency injection when swapping components around like legos, for instance using different variations of a component in different places or executables:
 ```cpp
 using App1 = Router<
-    Traits1,
+    Traits1, // whatever type traits you give it
     NodeList<
         CommonComponentX,
         CommonComponentY,
-        UniqueComponentA
+        UniqueComponentA // unique to this application (App1)
 >;
 
 using App2 = Router<
