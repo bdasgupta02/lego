@@ -4,6 +4,28 @@ A very simple single-header static dependency injection wiring system for low-la
 ### Requirements
 C++20
 
+### How is this dependency injection?
+The graph system puts tag dispatch at its core to route components statically, making the concept of dependency injection implicit and dependent on how you use the library. The structure of the router implies that each node is dependent on the entire structure of the graph, as well as the tag dispatched API it uses. This can therefore be a powerful tool for dependency injection when swapping components around like legos, for instance using different variations of a component in different places or executables:
+```cpp
+using App1 = Router<
+    Traits1,
+    NodeList<
+        CommonComponentX,
+        CommonComponentY,
+        UniqueComponentA
+>;
+
+using App2 = Router<
+    Traits2,
+    NodeList<
+        CommonComponentX,
+        CommonComponentY,
+        UniqueComponentB,
+        UniqueComponentC
+>;
+```
+
+## Quick Start
 ### Creating nodes
 These are the individual components of your app (or component graph). Other than the handlers and `NodeBase`, they just work like ordinary C++ structs or classes with your functionality within them. The bricks in this lego analogy.
 
