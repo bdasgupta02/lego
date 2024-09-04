@@ -32,7 +32,10 @@ using App2 = Router<
 These are the individual components of your app (or component graph). Other than the handlers and `NodeBase`, they just work like ordinary C++ structs or classes with your functionality within them. The bricks in this lego analogy.
 
 ```cpp
-// NodeBase is a lightweight struct to expose the handler to invoke functions of other nodes *magically*
+// NodeBase is a lightweight struct to expose the handler to
+// invoke functions of other nodes *magically*.
+// These nodes can be swapped around in the graph, as long as the API
+// between them are compatible
 template<typename NodeBase>
 struct Stream : NodeBase 
 {
